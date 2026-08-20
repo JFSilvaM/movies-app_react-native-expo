@@ -8,8 +8,6 @@ export const nowPlayingAction = async () => {
 
     const movies = data.results.map(mapMovie);
 
-    console.log(movies);
-
     return movies;
   } catch (error) {
     console.log(error);

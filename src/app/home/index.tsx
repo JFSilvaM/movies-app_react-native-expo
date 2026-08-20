@@ -1,0 +1,16 @@
+import { useMovies } from "@/hooks/useMovies";
+import { Text, View } from "react-native";
+
+const HomeScreen = () => {
+  const { nowPlayingQuery } = useMovies();
+
+  return (
+    <View>
+      <Text>HomeScreen</Text>
+
+      <Text>{JSON.stringify(nowPlayingQuery.data)}</Text>
+    </View>
+  );
+};
+
+export default HomeScreen;

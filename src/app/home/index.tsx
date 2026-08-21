@@ -1,10 +1,11 @@
 import MainSlideshow from "@/components/movies/main-slideshow";
+import MovieHorizontalList from "@/components/movies/movie-horizontal-list";
 import { useMovies } from "@/hooks/useMovies";
 import { ActivityIndicator, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const HomeScreen = () => {
-  const { nowPlayingQuery } = useMovies();
+  const { nowPlayingQuery, popularQuery } = useMovies();
   const safeArea = useSafeAreaInsets();
 
   return nowPlayingQuery.isLoading ? (
@@ -16,6 +17,8 @@ const HomeScreen = () => {
       <Text className="text-3xl font-bold px-4 mb-2">MoviesApp</Text>
 
       <MainSlideshow movies={nowPlayingQuery.data ?? []} />
+
+      <MovieHorizontalList title="Popular" movies={popularQuery.data ?? []} />
     </View>
   );
 };
